@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "GamersClub Match Downloader",
+  "short_name": "GC Downloader",
+  "version": "1.0.0",
+  "description": "Download complete raw match data from GamersClub as JSON without any treatment.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting",
+    "webRequest",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://gamersclub.com.br/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://gamersclub.com.br/lobby/match/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_title": "GamersClub Match Downloader"
+  }
+}
